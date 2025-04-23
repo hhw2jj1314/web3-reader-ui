@@ -1,0 +1,25 @@
+{
+  "name": "eth-tx-analyzer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "以太坊全类型交易解析 & 可视化分析器",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/charts": "^2.2.7",
+    "antd": "^5.24.8",
+    "ethers": "^6.13.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.2"
+  }
+}
