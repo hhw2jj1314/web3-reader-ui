@@ -29,7 +29,15 @@ const FlowChart: React.FC<FlowChartProps> = ({ transfers }) => {
                 amount: Number(tr.amount),
             };
         });
-    const nodes = Array.from(nodeSet).map(id => ({ id }));
+    const nodes = Array.from(nodeSet).map(id => {
+        return {
+            id: id,
+            style: {
+                fill: 'red',
+                stroke: 'blue',
+                lineWidth: 2,
+            },
+        } });
 
     useEffect(() => {
         if (!containerRef.current || edges.length === 0) return;
@@ -73,6 +81,7 @@ const FlowChart: React.FC<FlowChartProps> = ({ transfers }) => {
                 },
             },
         });
+        graphRef.current.render();
 
         // 如果 transfers 变了，更新数据
         return () => {
@@ -95,13 +104,14 @@ const FlowChart: React.FC<FlowChartProps> = ({ transfers }) => {
                     label: edge.asset ? `${edge.asset} ${edge.amount}` : `${edge.amount}`,
                 })),
             });
+            graphRef.current.render();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transfers]);
 
     if (edges.length === 0) return <div>暂无有效数据</div>;
 
-    return <div ref={containerRef} style={{ width: '100%', height: 300 }} />;
+    return <div ref={containerRef} style={{ width: '100%', height: 3000 }} />;
 };
 
 export default FlowChart;
