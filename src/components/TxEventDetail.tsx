@@ -28,8 +28,8 @@ const TxEventDetail: React.FC<{ event: any }> = ({ event }) => {
                         <Text strong>{event.amount} {event.assetSymbol}</Text>。
                         <br />
                         金额换算公式：<br />
-                        <Text code>实际金额 = 最小单位 / 10^{event.decimals}</Text><br />
-                        代入：{event.amountRaw} / 10^{event.decimals} = {event.amount} {event.assetSymbol}
+                        <Text code>实际金额 = 最小单位 / 10^{event.decimals.toString()}</Text><br />
+                        代入：{event.amountRaw} / 10^{event.decimals.toString()} = {event.amount} {event.assetSymbol}
                     </div>
                 </CollapsibleExplain>
             </Card>

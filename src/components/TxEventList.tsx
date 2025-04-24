@@ -40,8 +40,10 @@ const TxEventList: React.FC<{ txData: any }> = ({ txData }) => {
             amount: t.amount,
         }));
 
+    console.log('parsed.transfers', parsed.transfers)
     // Uniswap V2 池子变化与价格推算
     const syncs = getSyncEvents(parsed.transfers);
+    console.log('syncs ', syncs)
     const poolChange = syncs.length >= 2 ? calcReservesChange(syncs) : null;
     const price = poolChange
         ? calcPoolPrice(poolChange.after.reserve0, poolChange.after.reserve1)
@@ -76,7 +78,8 @@ const TxEventList: React.FC<{ txData: any }> = ({ txData }) => {
             <Divider />
             <div>
                 {parsed.transfers.map((event: any, idx: number) => (
-                    <TxEventDetail event={event} key={event.logIndex || idx} />
+                    // console.log('idx: ', idx, 'event: ', event)
+                    (<TxEventDetail event={event} key={event.logIndex || idx} />)
                 ))}
             </div>
         </div>

@@ -15,7 +15,6 @@ interface UniV2PoolChartProps {
 const UniV2PoolChart: React.FC<UniV2PoolChartProps> = ({
                                                            before, after, token0Symbol = 'Token0', token1Symbol = 'Token1', decimals0 = 18, decimals1 = 18
                                                        }) => {
-    console.log('before.reserve0', typeof before.reserve0)
     const data = [
         { type: token0Symbol, stage: '交易前', value: Number(before.reserve0) / Math.pow(10, decimals0) },
         { type: token0Symbol, stage: '交易后', value: Number(after.reserve0) / Math.pow(10, decimals0) },

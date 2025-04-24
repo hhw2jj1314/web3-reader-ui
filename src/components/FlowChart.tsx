@@ -92,14 +92,21 @@ const FlowChart: React.FC<FlowChartProps> = ({transfers}) => {
                     }
                 }
             },
-            behaviors: ['drag-canvas', 'zoom-canvas', 'drag-node', 'hover-activate', {
+            behaviors: ['zoom-canvas', 'hover-activate', {
                 type: 'click-select',
                 multiple: true,
+                state: 'active',
+                unselectedState: 'inactive',
+            }, {
+                type: 'brush-select',
+                immediately: true,
+                animation: true,
                 state: 'active',
                 unselectedState: 'inactive',
             }],
             layout: {
                 type: 'force',
+                preventOverlap: true,
             },
             autoFit: "view",
             autoResize: true,
